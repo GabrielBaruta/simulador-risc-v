@@ -1,0 +1,38 @@
+Instruções de Execução: O simulador foi desenvolvido utilizando tecnologias Web (HTML/CSS/JS) para garantir portabilidade e interface moderna.
+
+Extraia a pasta do projeto.
+
+Abra o arquivo "index.html" em qualquer navegador moderno (Google Chrome, Edge, Firefox).
+
+Cole o código Assembly no painel esquerdo.
+
+Utilize os botões "Carregar", "Passo" e "Executar Tudo" para controlar a simulação.
+
+# Teste 1: Aritmética
+ADDI x1, x0, 15
+ADDI x2, x0, 25
+ADD x3, x1, x2
+SUB x4, x2, x1
+MULT x5, x1, x2
+PRINT x3
+PRINT x4
+PRINT x5
+
+# Teste 2: Memória
+ADDI x1, x0, 99
+ADDI x2, x0, 0
+SW x1, x2, 4
+LW x3, x2, 4
+ADDI x4, x3, 1
+PRINT x3
+PRINT x4
+
+# Teste 3: Lógica Condicional
+ADDI x1, x0, 10
+ADDI x2, x0, 20
+SLT x3, x1, x2
+SLT x4, x2, x1
+AND x5, x3, x4
+OR x6, x3, x4
+PRINT x3
+PRINT x6

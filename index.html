@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador RISC-V | UTFPR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simulador RISC-V Single Cycle</h1>
+            <p>Arquitetura e Organização de Computadores - UTFPR</p>
+        </header>
+
+        <div class="main-grid">
+            <div class="panel code-panel">
+                <div class="panel-header">
+                    <h2>Assembly</h2>
+                    <div class="controls">
+                        <button id="btn-load" class="btn primary">Carregar</button>
+                        <button id="btn-step" class="btn secondary" disabled>Passo (Step)</button>
+                        <button id="btn-run" class="btn success" disabled>Executar Tudo</button>
+                        <button id="btn-reset" class="btn danger">Reset</button>
+                    </div>
+                </div>
+                <textarea id="editor" spellcheck="false" placeholder="Digite seu código assembly aqui...">
+ADDI x1, x0, 10
+ADDI x2, x0, 20
+ADD x3, x1, x2
+SUB x4, x2, x1
+SW x3, x0, 0
+LW x5, x0, 0
+PRINT x5
+                </textarea>
+                
+                <div class="console-output">
+                    <h3>Saída / Logs</h3>
+                    <div id="log-container"></div>
+                </div>
+            </div>
+
+            <div class="panel cpu-panel">
+                <div class="status-bar">
+                    <span id="pc-display">PC: 0</span>
+                    <span id="instr-display">Instr: ---</span>
+                </div>
+                <div class="binary-bar" id="binary-display">
+                    Binário: 00000000 00000000 00000000 00000000
+                </div>
+
+                <h3>Banco de Registradores</h3>
+                <div class="registers-grid" id="registers-container">
+                    </div>
+                
+                <h3>Memória de Dados (Recente)</h3>
+                <div id="memory-view" class="memory-list">
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
