@@ -1,38 +1,62 @@
-Instruções de Execução: O simulador foi desenvolvido utilizando tecnologias Web (HTML/CSS/JS) para garantir portabilidade e interface moderna.
+========================================================================
+UNIVERSIDADE TECNOLÓGICA FEDERAL DO PARANÁ (UTFPR)
+CAMPUS APUCARANA
+CURSO DE ENGENHARIA DE COMPUTAÇÃO
+========================================================================
 
-Extraia a pasta do projeto.
+DISCIPLINA: Arquitetura e Organização de Computadores
+PROFESSOR:  Marcelo de Oliveira
+ALUNOS:      Gabeiel Baruta Kocsis e Erica 
 
-Abra o arquivo "index.html" em qualquer navegador moderno (Google Chrome, Edge, Firefox).
+PROJETO:    Mini Simulador RISC-V
 
-Cole o código Assembly no painel esquerdo.
+------------------------------------------------------------------------
+1. DESCRIÇÃO DO PROJETO
+------------------------------------------------------------------------
+Este projeto consiste no desenvolvimento de um simulador para uma versão 
+do processador RISC-V de 32 bits de ciclo único (Single Cycle).
 
-Utilize os botões "Carregar", "Passo" e "Executar Tudo" para controlar a simulação.
+O software é capaz de:
+1. Ler um programa em código Assembly.
+2. Executar instruções passo a passo (Step) ou automaticamente (Run).
+3. Apresentar visualmente o conteúdo dos 32 registradores (x0-x31).
+4. Exibir o código binário correspondente à instrução atual.
+5. Gerar um relatório (Log) das operações realizadas e estado da memória.
 
-# Teste 1: Aritmética
-ADDI x1, x0, 15
-ADDI x2, x0, 25
-ADD x3, x1, x2
-SUB x4, x2, x1
-MULT x5, x1, x2
-PRINT x3
-PRINT x4
-PRINT x5
+A implementação abrange as instruções obrigatórias solicitadas:
+- Lógicas e Aritméticas: ADD, SUB, AND, OR, SLT, SLL, MULT.
+- Imediatas: ADDI, SLTI.
+- Acesso à Memória: LW (Load Word), SW (Store Word).
+- Sistema: PRINT (Simulação de saída de dados).
 
-# Teste 2: Memória
-ADDI x1, x0, 99
-ADDI x2, x0, 0
-SW x1, x2, 4
-LW x3, x2, 4
-ADDI x4, x3, 1
-PRINT x3
-PRINT x4
+------------------------------------------------------------------------
+2. TECNOLOGIA UTILIZADA
+------------------------------------------------------------------------
+O simulador foi desenvolvido utilizando tecnologias Web para garantir
+portabilidade, interface moderna e facilidade de execução sem necessidade
+de instalação de compiladores específicos.
 
-# Teste 3: Lógica Condicional
-ADDI x1, x0, 10
-ADDI x2, x0, 20
-SLT x3, x1, x2
-SLT x4, x2, x1
-AND x5, x3, x4
-OR x6, x3, x4
-PRINT x3
-PRINT x6
+- Linguagem: JavaScript (ES6+)
+- Interface: HTML5 e CSS3 (Responsivo / Dark Mode)
+
+------------------------------------------------------------------------
+3. COMO EXECUTAR
+------------------------------------------------------------------------
+Não é necessária instalação. O projeto roda diretamente no navegador.
+
+1. Extraia a pasta do projeto.
+2. Localize o arquivo "index.html".
+3. Dê um duplo clique para abri-lo em seu navegador padrão 
+   (Google Chrome, Microsoft Edge, Firefox, etc.).
+4. Utilize o painel esquerdo para inserir o código Assembly ou clique
+   nos botões de "Testes Rápidos" para carregar exemplos prontos.
+
+------------------------------------------------------------------------
+4. ARQUIVOS INCLUSOS
+------------------------------------------------------------------------
+- index.html ..... Interface Gráfica e Estrutura
+- style.css ...... Estilização (Visual Moderno)
+- script.js ...... Lógica do Processador (Unidade de Controle e ULA)
+- README.txt ..... Este arquivo de documentação
+
+========================================================================
