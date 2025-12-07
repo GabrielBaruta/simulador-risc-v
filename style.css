@@ -17,7 +17,8 @@ body {
 .container { max-width: 1200px; margin: 0 auto; }
 
 header { text-align: center; margin-bottom: 20px; }
-h1 { margin: 0; color: #61dafb; }
+h1 { margin: 0; color: #61dafb; font-size: 1.8rem; }
+p { color: #888; margin-top: 5px; }
 
 /* Grid Layout */
 .main-grid {
@@ -36,14 +37,49 @@ h1 { margin: 0; color: #61dafb; }
     flex-direction: column;
 }
 
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.panel-header h2 { margin: 0; font-size: 1.2rem; }
+
 /* Controls */
-.controls { margin-bottom: 10px; display: flex; gap: 5px; flex-wrap: wrap;}
-.btn { padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer; color: white; font-weight: bold; }
+.controls { display: flex; gap: 5px; }
+.btn { padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer; color: white; font-weight: bold; font-size: 0.9rem; transition: opacity 0.2s; }
+.btn:hover { opacity: 0.9; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .primary { background: #007acc; }
 .secondary { background: #d7ba7d; color: #333; }
 .success { background: #4caf50; }
 .danger { background: #f44336; }
+
+/* Novo: Card de Exemplos */
+.examples-card {
+    background-color: #333;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9em;
+    border: 1px dashed #555;
+    flex-wrap: wrap;
+}
+.examples-card span { color: #aaa; font-weight: bold; }
+.btn-example {
+    background: transparent;
+    border: 1px solid #666;
+    color: #ccc;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.2s;
+}
+.btn-example:hover { background: #444; color: white; border-color: #888; }
 
 /* Editor & Logs */
 #editor {
@@ -55,6 +91,7 @@ h1 { margin: 0; color: #61dafb; }
     border: 1px solid var(--border);
     resize: none;
     font-size: 14px;
+    line-height: 1.5;
 }
 
 .console-output {
@@ -66,29 +103,41 @@ h1 { margin: 0; color: #61dafb; }
     padding: 5px;
     border-top: 2px solid #333;
 }
-.log-item { border-bottom: 1px solid #333; padding: 2px; font-size: 12px; }
+.log-item { border-bottom: 1px solid #333; padding: 2px 5px; font-size: 12px; color: #ccc; }
 
 /* CPU State */
-.status-bar { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; font-size: 1.2em;}
-.binary-bar { font-family: monospace; color: #4caf50; background: black; padding: 5px; text-align: center; margin-bottom: 15px; border: 1px solid #333; }
+.status-bar { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; font-size: 1.1em;}
+.binary-bar { font-family: 'Courier New', monospace; color: #4caf50; background: black; padding: 8px; text-align: center; margin-bottom: 15px; border: 1px solid #333; letter-spacing: 1px; }
 
 .registers-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas de registradores */
+    grid-template-columns: repeat(4, 1fr);
     gap: 5px;
     max-height: 400px;
     overflow-y: auto;
+    padding-right: 5px;
 }
 
 .reg-box {
     background: #3c3c3c;
-    padding: 5px;
-    font-size: 12px;
+    padding: 4px 8px;
+    font-size: 11px;
     font-family: monospace;
     border-radius: 3px;
     border: 1px solid #555;
+    white-space: nowrap;
 }
-.reg-box.changed { background-color: #d7ba7d; color: black; transition: background 0.5s; }
+
+/* Memória View */
+.memory-list {
+    background: #1e1e1e;
+    border: 1px solid #444;
+    padding: 5px;
+    height: 100px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 12px;
+}
 
 /* Mobile Responsivo */
 @media (max-width: 768px) {
