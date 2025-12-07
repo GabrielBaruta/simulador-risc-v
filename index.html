@@ -10,7 +10,7 @@
     <div class="container">
         <header>
             <h1>Simulador RISC-V Single Cycle</h1>
-            <p>Arquitetura e Organização de Computadores - UTFPR</p>
+            <p>Engenharia de Computação - UTFPR | Arquitetura e Organização de Computadores</p>
         </header>
 
         <div class="main-grid">
@@ -18,21 +18,21 @@
                 <div class="panel-header">
                     <h2>Assembly</h2>
                     <div class="controls">
-                        <button id="btn-load" class="btn primary">Carregar</button>
+                        <button id="btn-load" class="btn primary">Carregar Código</button>
                         <button id="btn-step" class="btn secondary" disabled>Passo (Step)</button>
                         <button id="btn-run" class="btn success" disabled>Executar Tudo</button>
                         <button id="btn-reset" class="btn danger">Reset</button>
                     </div>
                 </div>
-                <textarea id="editor" spellcheck="false" placeholder="Digite seu código assembly aqui...">
-ADDI x1, x0, 10
-ADDI x2, x0, 20
-ADD x3, x1, x2
-SUB x4, x2, x1
-SW x3, x0, 0
-LW x5, x0, 0
-PRINT x5
-                </textarea>
+
+                <div class="examples-card">
+                    <span>Testes Rápidos:</span>
+                    <button class="btn-example" onclick="loadExample(1)">1. Aritmética</button>
+                    <button class="btn-example" onclick="loadExample(2)">2. Memória</button>
+                    <button class="btn-example" onclick="loadExample(3)">3. Lógica</button>
+                </div>
+
+                <textarea id="editor" spellcheck="false" placeholder="Digite seu código assembly aqui ou clique em um exemplo acima..."></textarea>
                 
                 <div class="console-output">
                     <h3>Saída / Logs</h3>
@@ -49,13 +49,14 @@ PRINT x5
                     Binário: 00000000 00000000 00000000 00000000
                 </div>
 
-                <h3>Banco de Registradores</h3>
+                <h3>Banco de Registradores (x0 - x31)</h3>
                 <div class="registers-grid" id="registers-container">
                     </div>
                 
-                <h3>Memória de Dados (Recente)</h3>
+                <h3>Memória de Dados (Endereços modificados)</h3>
                 <div id="memory-view" class="memory-list">
-                    </div>
+                    <div style="color: #666; padding: 5px;">Nenhum dado salvo na memória RAM ainda.</div>
+                </div>
             </div>
         </div>
     </div>
